@@ -4,36 +4,26 @@
 		<TargetFramework>net8.0</TargetFramework>
 		<Nullable>disable</Nullable>
 		<ImplicitUsings>enable</ImplicitUsings>
-		<GeneratePackageOnBuild>False</GeneratePackageOnBuild>
+		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
 		<Title>Daffitt Technologies Blazor Network Status</Title>
 		<Authors>Daffitt Technologies</Authors>
 		<Description>This NuGet package is a simple Blazor utility to check Internet connectivity. Use of this package is under the MIT License.</Description>
-		<Copyright>© 2024 Daffitt Technologies</Copyright>
+		<Copyright>© 2025 Daffitt Technologies</Copyright>
 		<PackageIcon>DaffittLogo_Signal.png</PackageIcon>
 		<PackageOutputPath>C:\Users\covey\source\NuGetPackages\Release</PackageOutputPath>
-		<Version>1.1.1</Version>
+		<Version>1.2.0</Version>
 		<ApplicationIcon>DaffittLogo_Signal.ico</ApplicationIcon>
 		<NeutralLanguage>en-US</NeutralLanguage>
-		<RepositoryType></RepositoryType>
+		<RepositoryType>git</RepositoryType>
 		<PackageTags>Blazor; Network; Connectivity</PackageTags>
 		<PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
-		<PackageReadmeFile></PackageReadmeFile>
+		<PackageReadmeFile>README.md</PackageReadmeFile>
 		<AssemblyVersion></AssemblyVersion>
+		<RepositoryUrl>https://github.com/DaffittTech/DaffittTech.NetworkStatus</RepositoryUrl>
 	</PropertyGroup>
 
 	<ItemGroup>
 		<Content Include="DaffittLogo_Signal.ico" />
-	</ItemGroup>
-
-	<ItemGroup>
-		<None Include="..\..\..\NuGetPackages\DaffittLogo_Signal\DaffittLogo_Signal.png">
-			<Pack>True</Pack>
-			<PackagePath>\</PackagePath>
-		</None>
-		<None Include="..\..\..\NuGetPackages\DaffittLogo_Signal\LICENSE.txt">
-			<Pack>True</Pack>
-			<PackagePath>\</PackagePath>
-		</None>
 	</ItemGroup>
 
 
@@ -46,6 +36,14 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <None Update="DaffittLogo_Signal.png">
+	    <Pack>True</Pack>
+	    <PackagePath>\</PackagePath>
+	  </None>
+	  <None Update="LICENSE.txt">
+	    <Pack>True</Pack>
+	    <PackagePath>\</PackagePath>
+	  </None>
 	  <None Update="README.md">
 	    <Pack>True</Pack>
 	    <PackagePath>\</PackagePath>
