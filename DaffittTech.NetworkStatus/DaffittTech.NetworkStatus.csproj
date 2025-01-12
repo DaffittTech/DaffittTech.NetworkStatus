@@ -1,0 +1,55 @@
+<Project Sdk="Microsoft.NET.Sdk.Razor">
+
+	<PropertyGroup>
+		<TargetFramework>net8.0</TargetFramework>
+		<Nullable>disable</Nullable>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<GeneratePackageOnBuild>False</GeneratePackageOnBuild>
+		<Title>Daffitt Technologies Blazor Network Status</Title>
+		<Authors>Daffitt Technologies</Authors>
+		<Description>This NuGet package is a simple Blazor utility to check Internet connectivity. Use of this package is under the MIT License.</Description>
+		<Copyright>© 2024 Daffitt Technologies</Copyright>
+		<PackageIcon>DaffittLogo_Signal.png</PackageIcon>
+		<PackageOutputPath>C:\Users\covey\source\NuGetPackages\Release</PackageOutputPath>
+		<Version>1.1.1</Version>
+		<ApplicationIcon>DaffittLogo_Signal.ico</ApplicationIcon>
+		<NeutralLanguage>en-US</NeutralLanguage>
+		<RepositoryType></RepositoryType>
+		<PackageTags>Blazor; Network; Connectivity</PackageTags>
+		<PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
+		<PackageReadmeFile></PackageReadmeFile>
+		<AssemblyVersion></AssemblyVersion>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<Content Include="DaffittLogo_Signal.ico" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<None Include="..\..\..\NuGetPackages\DaffittLogo_Signal\DaffittLogo_Signal.png">
+			<Pack>True</Pack>
+			<PackagePath>\</PackagePath>
+		</None>
+		<None Include="..\..\..\NuGetPackages\DaffittLogo_Signal\LICENSE.txt">
+			<Pack>True</Pack>
+			<PackagePath>\</PackagePath>
+		</None>
+	</ItemGroup>
+
+
+	<ItemGroup>
+		<SupportedPlatform Include="browser" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="8.0.6" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <None Update="README.md">
+	    <Pack>True</Pack>
+	    <PackagePath>\</PackagePath>
+	  </None>
+	</ItemGroup>
+
+</Project>
