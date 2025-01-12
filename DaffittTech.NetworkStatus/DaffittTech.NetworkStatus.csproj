@@ -26,6 +26,13 @@
 		<Content Include="DaffittLogo_Signal.ico" />
 	</ItemGroup>
 
+	<ItemGroup>
+	  <None Include="..\README.md">
+	    <Pack>True</Pack>
+	    <PackagePath>\</PackagePath>
+	  </None>
+	</ItemGroup>
+
 
 	<ItemGroup>
 		<SupportedPlatform Include="browser" />
