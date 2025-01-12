@@ -10,7 +10,7 @@ To take advantage of this Blazor utility package, follow the instructions below.
 Depending on your chosen Blazor project configuration, you should only need to add this package to the application's Client-side (UI). However, you may need to experiment, as Microsoft likes to change technologies on a moment-to-moment basis.
 1. The simplest way to add this service to your Blazor application is to use the Package Manager in Visual Studio. Search for Daffitt Technologies and select DaffittTech.NetworkStatus package, and click install.
 
-2. You can also go to [https://www.nuget.org/profiles/DaffittTechnologies](https://www.nuget.org/profiles/DaffittTechnologies) and follow the directions for your favorite method of installing NuGet packages.
+2. You can also go to [https://www.nuget.org/packages/DaffittTech.NetworkStatus](https://www.nuget.org/packages/DaffittTech.NetworkStatus) and follow the directions for your favorite method of installing NuGet packages.
 
 ### _Imports.razor
 2. You'll need to add this line to the ```_Imports.razor``` file where you'll be using these package.
