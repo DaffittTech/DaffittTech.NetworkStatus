@@ -2,7 +2,7 @@
 
 namespace DaffittTech.NetworkStatus
 {
-    public partial class ConnectionStatus : ComponentBase
+    public partial class NetworkConnection : ComponentBase
     {
         [Parameter] public string Status { get; set; } = "Checking...";
         private string AlertColor { get; set; } = "alert-secondary";

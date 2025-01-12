@@ -22,15 +22,15 @@ If you separate your *.razor* page from its *.cs* page, you may also need to add
 ### Using NetworkStatus
 3. To use the component just add it as an HTML element to the ```razor``` page like so...
 ```html
-<ConnectionStatus Status=@ConnectionStatus />
+<NetworkConnection Status=@ConnectionStatus />
 ```
 
 ## Software dependencies
 >- This utility is built on the .Net 8.0 framework
->- Microsoft.ASPNetCore.Components.Web (>= 7.0.0)
+>- Microsoft.ASPNetCore.Components.Web (>= 8.0.6)
 
 ## Latest releases
-The current release version is 1.2.0
+The current release version is 1.3.0
 
 ## API references
 At this time, there are no API references on which to speak.
