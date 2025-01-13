@@ -13,14 +13,14 @@ Depending on your chosen Blazor project configuration, you should only need to a
 2. You can also go to [https://www.nuget.org/packages/DaffittTech.NetworkStatus](https://www.nuget.org/packages/DaffittTech.NetworkStatus) and follow the directions for your favorite method of installing NuGet packages.
 
 ### _Imports.razor
-2. You'll need to add this line to the ```_Imports.razor``` file where you'll be using these package.
+You'll need to add this line to the ```_Imports.razor``` file where you'll be using these package.
 ```html
 @using DaffittTech.NetworkStatus
 ```
 If you separate your *.razor* page from its *.cs* page, you may also need to add one, or a combination of these lines to the using statements in the *.cs* page (without the "@" symbol).
 
 ### Using NetworkStatus
-3. To use the component just add it as an HTML element to the ```razor``` page like so...
+To use the component just add it as an HTML element to the ```razor``` page like so...
 ```html
 <NetworkConnection Status=@ConnectionStatus />
 ```
@@ -30,7 +30,7 @@ If you separate your *.razor* page from its *.cs* page, you may also need to add
 >- Microsoft.ASPNetCore.Components.Web (>= 8.0.6)
 
 ## Latest releases
-The current release version is 1.3.0
+The current release version is 1.3.3
 
 ## API references
 At this time, there are no API references on which to speak.

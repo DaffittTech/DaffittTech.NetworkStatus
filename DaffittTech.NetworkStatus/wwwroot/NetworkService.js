@@ -28,7 +28,26 @@ window.networkStatus = {
                 window.networkStatus.notifyStatusChanged(false);
             });
     },
+    async checkStatus() {
+        const controller = new AbortController();
+        const signal = controller.signal;
+        const timeout = setTimeout(() => controller.abort(), 3000);
+        if (navigator.onLine) {
+            try {
+                await fetch('https://www.google.com/generate_204', { method: 'HEAD', mode: 'no-cors', signal });
+                clearTimeout(timeout);
+                return true;
+            } catch (error) {
+                clearTimeout(timeout);
+                return false;
+            }
+        } else {
+            return false;
+        }
+    },
     notifyStatusChanged: function (status) {
+        const message = status === true ? 'Network Status: Connected' : 'Network Status: Connection lost';
+        console.log(message);
         if (this.dotNetObject) {
             this.dotNetObject.invokeMethodAsync("NotifyNetworkStatusChanged", status);
         }

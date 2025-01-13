@@ -42,14 +42,15 @@ namespace DaffittTech.NetworkStatus
         }
 
         /// <summary>
-        /// The FetchStatus method does just what it sounds like; it fetches the online/offline connection 
+        /// The CheckStatus method does just what it sounds like; it checks the online/offline connection 
         /// status by fetching a 204 responce from a Google.com url.
         /// </summary>
         /// <returns>Completed Task</returns>
-        public Task FetchStatus()
+        public async Task CheckStatus()
         {
-            _jsRuntime.InvokeVoidAsync("networkStatus.fetchStatus");
-            return Task.CompletedTask;
+            var result = await _jsRuntime.InvokeAsync<bool>("networkStatus.checkStatus");
+            OnNetworkStatusChanged.Invoke(result);
+            await Task.CompletedTask;
         }
 
         /// <summary>
@@ -58,7 +59,7 @@ namespace DaffittTech.NetworkStatus
         /// that the status online/offline value has changed.
         /// </summary>
         /// <param name="onlineStatus"></param>
-        /// <returns>Calls the component's Event Handler and passes either "Online" or "Offline" to that handler.</returns>
+        /// <returns>Calls the component's Event Handler and passes either true (Online) or false (Offline) to that handler.</returns>
         [JSInvokable]
         public void NotifyNetworkStatusChanged(bool onlineStatus)
         {
