@@ -1,4 +1,4 @@
-# DaffittTech.NetworkStatus
+# DaffittTech Network Status
 
 ## Introduction
 This NuGet package is a simple Blazor utility for checking Internet connectivity. Its use is described under the MIT License.
