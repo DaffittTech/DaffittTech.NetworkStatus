@@ -3,14 +3,6 @@ window.networkStatus = {
     initialize: function (dotNetObject) {
         // Register the DoNetObject to which this applies
         this.dotNetObject = dotNetObject;
-
-        // Update the status immediately
-        if (navigator.onLine) {
-            this.fetchStatus();
-        }
-        else {
-            this.notifyStatusChanged(false);
-        }
     },
     fetchStatus: function () {
         const controller = new AbortController();
@@ -32,28 +24,27 @@ window.networkStatus = {
         const controller = new AbortController();
         const signal = controller.signal;
         const timeout = setTimeout(() => controller.abort(), 3000);
-        if (navigator.onLine) {
-            try {
-                await fetch('https://www.google.com/generate_204', { method: 'HEAD', mode: 'no-cors', signal });
-                clearTimeout(timeout);
-                return true;
-            } catch (error) {
-                clearTimeout(timeout);
-                return false;
-            }
-        } else {
+        try {
+            await fetch('https://www.google.com/generate_204', { method: 'HEAD', mode: 'no-cors', signal });
+            clearTimeout(timeout);
+            return true;
+        } catch (error) {
+            clearTimeout(timeout);
             return false;
         }
     },
+    monitorStatus: function (seconds) {
+        if (!seconds || seconds <= 0) {
+            clearInterval(this.intervalId);
+        }
+        else if (seconds > 0) {
+            this.intervalId = setInterval(this.fetchStatus, seconds * 1000);
+        }
+    },
     notifyStatusChanged: function (status) {
-        const message = status === true ? 'Network Status: Connected' : 'Network Status: Connection lost';
-        console.log(message);
         if (this.dotNetObject) {
             this.dotNetObject.invokeMethodAsync("NotifyNetworkStatusChanged", status);
         }
-    },
-    monitorStatus: function (seconds) {
-        this.intervalId = setInterval(this.fetchStatus, seconds * 1000);
     },
     dispose: function () {
         // Stop the setInterval operation
