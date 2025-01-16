@@ -1,9 +1,36 @@
 .alert {
-    margin-bottom: 16px;
+    margin: 0 0 16px 0;
     padding: 4px;
 }
 
+    .alert svg {
+        margin-right: 8px;
+    }
+
+    .alert .online {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        font-weight: bold;
+        fill: green;
+        color: green;
+        margin: 0;
+        padding: 0;
+    }
+
+    .alert .offline {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        font-weight: bold;
+        fill: red;
+        color: red;
+        margin: 0;
+        padding: 0;
+    }
+
     .alert h1, .alert h2, .alert h3, .alert h4, .alert h5, .alert h6 {
+        font-weight: bold;
         margin: 0;
         padding: 0;
     }

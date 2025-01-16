@@ -7,7 +7,7 @@ window.networkStatus = {
     fetchStatus: function () {
         const controller = new AbortController();
         const signal = controller.signal;
-        const timeout = setTimeout(() => controller.abort(), 3000); // Timeout after 3 seconds
+        const timeout = setTimeout(() => controller.abort(), 1000); // Timeout after 1 second
 
         // Ping a Google service to see if the Internet is active.
         fetch('https://www.google.com/generate_204', { method: 'HEAD', mode: 'no-cors', signal })
