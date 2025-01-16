@@ -1,3 +1,5 @@
+# DaffittTech Network Status
+
 ## Introduction
 This NuGet package is a simple Blazor utility for checking Internet connectivity. It uses the JSInterop to communicate with JavaScript functions that do the connection status workload and then relay the results to the NetworkConnection component. Its use is described under the MIT License.
 
@@ -6,11 +8,11 @@ This README file is relevant to this NuGet package's current version, so older v
 
 ## Setting It Up
 There are several steps to set up and use DaffittTech.NetworkStatus package.
-•	Install the NuGet package
-•	Register the package
-•	Add the directive to the _Imports.razor file
-•	Inject the NetworkService into your Blazor code
-•	Add the NetworkConnection component  to your UI
+ï¿½	Install the NuGet package
+ï¿½	Register the package
+ï¿½	Add the directive to the _Imports.razor file
+ï¿½	Inject the NetworkService into your Blazor code
+ï¿½	Add the NetworkConnection component  to your UI
 
 ### Install NuGet Package
 Depending on your chosen Blazor project configuration, you will likely need to add this package to the application's Client-side (UI) and server-side based on where your pages and components are running from. However, you may need to experiment, as Microsoft likes to change technologies on a moment-to-moment basis.
