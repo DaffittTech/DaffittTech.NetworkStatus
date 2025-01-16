@@ -8,11 +8,11 @@ This README file is relevant to this NuGet package's current version, so older v
 
 ## Setting It Up
 There are several steps to set up and use DaffittTech.NetworkStatus package.
-- Install the NuGet package
-- Register the package
-- Add the directive to the _Imports.razor file
-- Inject the NetworkService into your Blazor code
-- Add the NetworkConnection component  to your UI
+>- Install the NuGet package
+>- Register the package
+>- Add the directive to the _Imports.razor file
+>- Inject the NetworkService into your Blazor code
+>- Add the NetworkConnection component  to your UI
 
 ### Install NuGet Package
 Depending on your chosen Blazor project configuration, you will likely need to add this package to the application's Client-side (UI) and server-side based on where your pages and components are running from. However, you may need to experiment, as Microsoft likes to change technologies on a moment-to-moment basis.
