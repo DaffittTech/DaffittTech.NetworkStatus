@@ -98,3 +98,6 @@ The current release version is 1.4.0
 
 ## API references
 At this time, there are no API references on which to speak.
+
+### Sample Screen Shot
+![Sample Screen Shot](https://github.com/DaffittTech/DaffittTech.NetworkStatus/blob/main/DaffittTech.NetworkStatus/Sample.png?raw=true)
