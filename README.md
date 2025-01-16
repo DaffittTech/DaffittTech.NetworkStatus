@@ -1,3 +1,5 @@
+# DaffittTech Network Status
+
 ## Introduction
 This NuGet package is a simple Blazor utility for checking Internet connectivity. It uses the JSInterop to communicate with JavaScript functions that do the connection status workload and then relay the results to the NetworkConnection component. Its use is described under the MIT License.
 
