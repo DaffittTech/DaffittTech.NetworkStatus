@@ -49,7 +49,7 @@ If you separate your *.razor* page from its *.cs* page, add this line to the usi
 private bool NetworkStatus { get; set; } = true
 ```
 
-### Using NetworkStatus
+## Using NetworkStatus
 To use the component, just add it as an HTML element to the ```razor``` page.
 ```html
 <NetworkConnection Status=@ConnectionStatus />
