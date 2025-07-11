@@ -25,10 +25,9 @@ Depending on your chosen Blazor project configuration, you will likely need to a
 Add the using statement and the scoped service to the Programs.cs file.
 ```csharp
 using DaffittTech.NetworkStatus;
-
+...
 builder.Services.AddScoped<NetworkService>();
 ```
-
 ### _Imports.razor
 You'll need to add this line to the ```_Imports.razor``` file where you'll use these packages.
 ```html
@@ -37,7 +36,7 @@ You'll need to add this line to the ```_Imports.razor``` file where you'll use t
 If you separate your *.razor* page from its *.cs* page, you may also need to add the line above to the using section in the *.cs* page (without the "@" symbol).
 
 ### Inject NetworkService Into Your Blazor Code
-If you keep your *.razor* code and backend *.cs* code together in the same razor file, add this line at the top of the page/component.
+If you keep your *.razor* code and backend *.cs* code together in the same razor file, add this line at the top of the razor page.
 ```html
 @inject NetworkService NetworkService
 ```
@@ -45,50 +44,57 @@ If you separate your *.razor* page from its *.cs* page, add this line to the usi
 
 ```csharp
 [Inject] protected NetworkService NetworkService { get; set; }
-
-private bool NetworkStatus { get; set; } = true
 ```
 
-## Using NetworkStatus
-To use the component, just add it as an HTML element to the ```razor``` page.
-```html
-<NetworkConnection Status=@ConnectionStatus />
-```
-Then, an event handler will be set up to capture the action event of the network status change. You'll also need to trigger updates, respond to the change using the OnAfterRenderAsync and UpdateNetworkStatus methods, and finally call a dispose to clean it up.
-```csharp
-protected async override Task OnInitializedAsync()
-{
-NetworkService.OnNetworkStatusChanged += UpdateNetworkStatus;
-await base.OnInitializedAsync();
-}
-
-protected async override Task OnAfterRenderAsync(bool firstRender)
-{
-    if (firstRender)
-    {
-        await NetworkService.CheckStatusAsync();
-    }
-    await base.OnAfterRenderAsync(firstRender);
-}
-
-private void UpdateNetworkStatus(bool status)
-{
-    NetworkStatus = status;
-    StateHasChanged();
-}
-
-public void Dispose()
-{
-    NetworkService.OnNetworkStatusChanged -= UpdateNetworkStatus;
-    NetworkService.Dispose();
-}
-```
 ### Add NetworkConnection Component
-Finally, add the NetworkConnection component to the UI.
+To use the component, just add it as an HTML element to the ```razor``` page.
 ```html
 <NetworkConnection Interval="@Interval" />
 ```
+The **Interval** parameter is optional. If you set it to a value greater than zero, the component will check the network status at that interval in milliseconds. If you set it to null, the component will not check the network status automatically.
 
+### Set up the Code Section
+Finally, set up an event listener and handler to capture the action event of the network status change. You'll also need to trigger updates, respond to the change using the OnAfterRenderAsync and UpdateNetworkStatus methods, and finally call a dispose to clean it up.
+
+```csharp
+@code {
+    [Inject] protected NetworkService NetworkService { get; set; } // Inject the NetworkService to check network status
+
+    private bool NetworkStatus { get; set; } // True if online, false if offline
+    private int? Interval { get; set; } = null; // Set to null to disable automatic checks
+
+    protected async override Task OnInitializedAsync()
+    {
+        NetworkService.OnNetworkStatusChanged += UpdateNetworkStatus;
+        await base.OnInitializedAsync();
+    }
+
+    protected async override Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            await NetworkService.CheckStatusAsync();
+        }
+        await base.OnAfterRenderAsync(firstRender);
+    }
+
+    private void UpdateNetworkStatus(bool status)
+    {
+        NetworkStatus = status;
+        StateHasChanged();
+    }
+
+    public void Dispose()
+    {
+        NetworkService.OnNetworkStatusChanged -= UpdateNetworkStatus;
+        NetworkService.Dispose();
+    }
+}
+```
+If you are placing your UI content and @code content in the same .razor page remember to add the reference to IDisposable at the top like so...
+```csharp
+@implements IDisposable
+```
 ## Software dependencies
 >- This utility is built on the .Net 8.0 framework
 >- Microsoft.ASPNetCore.Components.Web (>= 8.0.6)
