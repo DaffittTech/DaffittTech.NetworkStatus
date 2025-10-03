@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk.Razor">
 
 	<PropertyGroup>
-		<TargetFramework>net8.0</TargetFramework>
+		<TargetFramework>net9.0</TargetFramework>
 		<Nullable>disable</Nullable>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<GeneratePackageOnBuild>False</GeneratePackageOnBuild>
@@ -11,7 +11,7 @@
 		<Copyright>© 2025 Daffitt Technologies</Copyright>
 		<PackageIcon>DaffittLogo_Signal.png</PackageIcon>
 		<PackageOutputPath>C:\Users\covey\source\NuGetPackages\Release</PackageOutputPath>
-		<Version>1.4.0</Version>
+		<Version>2.0.0</Version>
 		<ApplicationIcon>DaffittLogo_Signal.ico</ApplicationIcon>
 		<NeutralLanguage>en-US</NeutralLanguage>
 		<RepositoryType>git</RepositoryType>
@@ -20,6 +20,8 @@
 		<PackageReadmeFile>README.md</PackageReadmeFile>
 		<AssemblyVersion></AssemblyVersion>
 		<RepositoryUrl>https://github.com/DaffittTech/DaffittTech.NetworkStatus</RepositoryUrl>
+		<PackageReleaseNotes>This is a new release from 1.4.0 to simplify features and stability.</PackageReleaseNotes>
+		<PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
 	</PropertyGroup>
 
 	<ItemGroup>
