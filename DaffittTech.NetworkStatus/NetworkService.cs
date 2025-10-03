@@ -33,9 +33,9 @@ namespace DaffittTech.NetworkStatus
         /// </summary>
         /// <param name="seconds"></param>
         /// <returns>Completed Task</returns>
-        public Task MonitorStatus(int? seconds = null)
+        public Task MonitorStatus(int? interval = null, double? timeout = null)
         {
-            _jsRuntime.InvokeVoidAsync("networkStatus.monitorStatus", seconds);
+            _jsRuntime.InvokeVoidAsync("networkStatus.monitorStatus", interval, timeout);
             return Task.CompletedTask;
         }
 
@@ -44,22 +44,11 @@ namespace DaffittTech.NetworkStatus
         /// by fetching a 204 responce from a Google.com url.
         /// </summary>
         /// <returns>true (Online) or false (Offline) to the component's Action Event Handler.</returns>
-        public async Task CheckStatusAsync()
+        public async Task CheckStatusAsync(double? timeout = null)
         {
-            var result = await _jsRuntime.InvokeAsync<bool>("networkStatus.checkStatus");
+            var result = await _jsRuntime.InvokeAsync<bool>("networkStatus.checkStatus", timeout);
             OnNetworkStatusChanged.Invoke(result);
             await Task.CompletedTask;
-        }
-
-        /// <summary>
-        /// The GetStatusAsync method is an asynchronous method that checks the online/offline connection status
-        /// by fetching a 204 responce from a Google.com url.
-        /// </summary>
-        /// <returns>true (Online) or false (Offline) directly to the calling statement.</returns>
-        public async Task<bool> GetStatusAsync()
-        {
-            var result = await _jsRuntime.InvokeAsync<bool>("networkStatus.checkStatus");
-            return result;
         }
 
         /// <summary>
@@ -83,6 +72,8 @@ namespace DaffittTech.NetworkStatus
         public void Dispose()
         {
             _jsRuntime.InvokeVoidAsync("networkStatus.dispose");
+            _dotNetReference?.Dispose();
+            GC.SuppressFinalize(this);
         }
     }
 }
