@@ -12,11 +12,6 @@ namespace DaffittTech.NetworkStatus
         private bool NetworkStatus { get; set; } = false;
         private string AlertColor { get; set; } = "alert-secondary";
 
-        protected async override Task OnParametersSetAsync()
-        {
-            await base.OnParametersSetAsync();
-        }
-
         protected async override Task OnAfterRenderAsync(bool firstRender)
         {
             if (firstRender)
