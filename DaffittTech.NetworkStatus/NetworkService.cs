@@ -60,7 +60,7 @@ namespace DaffittTech.NetworkStatus
 
         /// <summary>
         /// Checks the current network status and triggers the <see cref="OnNetworkStatusChanged"/> event with the
-        /// result. The CheckStatusAsync method is an asynchronous method that checks the online/offline connection status
+        /// result. The GetStatusAsync method is an asynchronous method that checks the online/offline connection status
         /// by fetching a 204 responce from a Google.com url.
         /// </summary>
         /// <remarks>This method invokes a JavaScript function to determine the network status and raises
@@ -69,9 +69,9 @@ namespace DaffittTech.NetworkStatus
         /// <param name="timeout">An optional timeout value, in milliseconds, specifying the maximum time to wait for the network status check
         /// to complete. If <see langword="null"/>, the default timeout is used.</param>
         /// <returns></returns>
-        public async Task CheckStatusAsync(double? timeout = null)
+        public async Task GetStatusAsync(double? timeout = null)
         {
-            var result = await _jsRuntime.InvokeAsync<bool>("networkStatus.checkStatus", timeout);
+            bool result = await _jsRuntime.InvokeAsync<bool>("networkStatus.getStatusAsync", timeout);
             OnNetworkStatusChanged.Invoke(result);
             await Task.CompletedTask;
         }

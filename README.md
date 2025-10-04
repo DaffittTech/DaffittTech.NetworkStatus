@@ -99,14 +99,16 @@ If you are placing your UI content and @code content in the same .razor page rem
 @implements IDisposable
 ```
 ## Software dependencies
->- This utility is built on the .Net 8.0 framework
+>- This utility is built on the .Net 9.0 framework
 >- Microsoft.ASPNetCore.Components.Web (>= 8.0.6)
 
 ## Latest releases
-The current release version is 1.4.0
+The current release version is 2.0.0
 
 ## API references
-At this time, there are no API references on which to speak.
+At this time, there are no API references about which to speak.
 
 ### Sample Screen Shot
 ![Sample Screen Shot](https://github.com/DaffittTech/DaffittTech.NetworkStatus/blob/main/DaffittTech.NetworkStatus/Sample.png?raw=true)
+
+![Sample Screen Shot](DaffittTech.NetworkStatus/Sample.png?raw=true)
