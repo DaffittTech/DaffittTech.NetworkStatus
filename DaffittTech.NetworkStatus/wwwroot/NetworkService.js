@@ -5,7 +5,7 @@ window.networkStatus = {
         this.dotNetObject = dotNetObject;
     },
     // This is called on demand to check the status of the network
-    async checkStatus(tmeout) {
+    async getStatusAsync(tmeout) {
         if (!tmeout || tmeout < 0) {tmeout = 1.0 } // Default to 1 second
         const controller = new AbortController();
         const signal = controller.signal;
@@ -23,18 +23,18 @@ window.networkStatus = {
     // This is called periodically to check the status of the network and notify the .NET object if it changes
     // as part of the monitorStatus function's operation below.
     fetchStatus: function (timeout) {
-        if (!timeout || timeout < 0) { timeout = 1.0; } // Default timeout of 1 second
+        if (!timeout || timeout < 0) { timeout = 1.0; }
         const controller = new AbortController();
         const signal = controller.signal;
-        const timeoutID = setTimeout(() => controller.abort(), timeout * 1000); // Timeout after 1 second
+        const timeoutID = setTimeout(() => controller.abort(), timeout * 1000);
 
-        // Ping a Google service to see if the Internet is active.
         fetch('https://www.google.com/generate_204', { method: 'HEAD', mode: 'no-cors', signal })
-            .then(response => {
+            .then(() => {
                 clearTimeout(timeoutID);
+                // In no-cors mode, we can't inspect the response, so assume online if fetch resolves
                 window.networkStatus.notifyStatusChanged(true);
             })
-            .catch(error => {
+            .catch(() => {
                 clearTimeout(timeoutID);
                 window.networkStatus.notifyStatusChanged(false);
             });
@@ -43,9 +43,8 @@ window.networkStatus = {
     monitorStatus: function (interval, timeout) {
         if (interval && interval > 0) {
             if (!timeout || timeout < 0) { timeout = 1.0; } // Default timeout of 1 second
-            {
-                this.intervalId = setInterval(this.fetchStatus(timeout), interval * 1000);
-            }
+            // Pass a function reference to setInterval so fetchStatus is called repeatedly
+            this.intervalId = setInterval(() => this.fetchStatus(timeout), interval * 1000);
         }
         else { clearInterval(this.intervalId); }
     },
