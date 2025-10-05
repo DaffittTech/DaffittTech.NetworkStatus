@@ -6,7 +6,7 @@
 This README file is relevant to this NuGet package's current version, so older versions may vary. To take advantage of this Blazor utility package, follow the instructions below.
 
 ## Software Dependencies
-- **NuGet Package:** [DaffittTech.NetworkStatus](https://www.nuget.org/packages/DaffittTech.Ne>tworkStatus)
+- **NuGet Package:** [DaffittTech.NetworkStatus](https://www.nuget.org/packages/DaffittTech.NetworkStatus)
 - **Latest Release:** The current release version is 2.0.0
 - **Target Framework:** .NET 9.0
 - **Dependencies:** Microsoft.ASPNetCore.Components.Web (>= 8.0.6)
@@ -35,7 +35,7 @@ Depending on your chosen Blazor project configuration, you will likely need to a
 
 1.	The most straightforward way to add this service to your Blazor application is to use the Package Manager in Visual Studio. Search for Daffitt Technologies and select DaffittTech.NetworkStatus package, choose the projects you wish to install it into (client-side and/or server-side), and click install.
 
-2.	You can also go to [https://www.nuget.org/packages/DaffittTech.NetworkStatus](https://www.nuget.org/packages/DaffittTech.NetworkStatus) and follow the directions for your favorite method of installing NuGet packages.
+2.	You can also go to [DaffittTech.NetworkStatus](https://www.nuget.org/packages/DaffittTech.NetworkStatus) on NuGet.org and follow the directions for your favorite method of installing NuGet packages.
 
 ### Register The NetworkService
 Add the using statement and the NetworkService to the ```Programs.cs``` file. This will need to be added to both server-side and client-side if your project uses both. We are using AddScoped rather than AddSingleton or AddTransiant because this package uses JSInterop which requires the component to be registered as Scoped.
