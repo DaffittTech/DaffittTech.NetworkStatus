@@ -12,6 +12,12 @@ This README file is relevant to this NuGet package's current version, so older v
 - **Dependencies:** Microsoft.ASPNetCore.Components.Web (>= 8.0.6)
 - **License:** This package is licensed under the MIT License. See the LICENSE.txt file for more information.
 
+## API references
+At this time there are no API references of which to speak.
+
+## Contribute
+For the time being, this collection of components is maintained in a private repository and may not be accessed or contributed to.
+
 ## Features
 - Detects online/offline status in real time or on demand.
 - Blazor component for UI integration.
