@@ -7,7 +7,7 @@ This README file is relevant to this NuGet package's current version, so older v
 
 ## Software Dependencies
 - **NuGet Package:** [DaffittTech.NetworkStatus](https://www.nuget.org/packages/DaffittTech.NetworkStatus)
-- **Latest Release:** The current release version is 2.0.0
+- **Latest Release:** The current release version is 2.0.1.0
 - **Target Framework:** .NET 9.0
 - **Dependencies:** Microsoft.ASPNetCore.Components.Web (>= 8.0.6)
 - **License:** This package is licensed under the MIT License. See the LICENSE.txt file for more information.
