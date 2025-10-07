@@ -7,7 +7,7 @@ This README file is relevant to this NuGet package's current version, so older v
 
 ## Software Dependencies
 - **NuGet Package:** [DaffittTech.NetworkStatus](https://www.nuget.org/packages/DaffittTech.NetworkStatus)
-- **Latest Release:** The current release version is 2.0.1.0
+- **Latest Release:** The current release version is 2.1.0
 - **Target Framework:** .NET 9.0
 - **Dependencies:** Microsoft.ASPNetCore.Components.Web (>= 8.0.6)
 - **License:** This package is licensed under the MIT License. See the LICENSE.txt file for more information.
@@ -69,7 +69,7 @@ Add the following line to your end of the <body> section if your ```App.razor```
 ```
 
 ### Inject NetworkService Into Your Blazor Code
-If you keep your *.razor* code and backend *.cs* code together in the same razor file, add this line at the top of the razor page.
+If you keep your *.razor* code and back-end *.cs* code together in the same razor file, add this line at the top of the razor page.
 ```html
 @inject NetworkService NetworkService
 ```
@@ -87,24 +87,26 @@ private double? NetworkStatusTimeout { get; set; } = null; // Time allowed in se
 ```
 
 ### Add NetworkConnection Component To The UI
-To use the component, just add it as an HTML element to the ```.razor``` page. My example here allows the component to live near the bottom of it's container in a project that uses bootstrap.
+To include the component, simply insert it as an HTML element within your ```.razor``` page. In my example, the component is positioned near the bottom of its container, which uses Bootstrap styling. However, you can place the Network Connection component wherever you prefer and use any design method that suits your project. This is just one way to position it at the base of a vertical menu drawer.
+
+#### With Bootstrap
 ```html
 <div class="d-flex flex-column position-absolute bottom-0 px-3 text-center w-100">
     <NetworkConnection Interval="@Interval" Timeout="@NetworkStatusTimeout" />
 </div>
-
 ```
-If you are not using bootstrap, you may get the same affect with this line.
+#### Without Bootstrap
+If you are not using bootstrap, you may get the same affect doing it this way.
+
 ```html
 <div style="display: flex; flex-direction: column; position: absolute; bottom: 0; padding: 0 16px; width: 100%">
     <NetworkConnection Interval="@Interval" Timeout="@NetworkStatusTimeout" />
 </div>
 ```
-
 ### Parameters
 Set the ```Interval``` property (in seconds) above zero to check network status regularly; set it to null to disable automatic checks. *Note:* This setting will repeatedly send checks until the NetworkStatus component is disposed.
 
-The ```NetworkStatusTimeout``` property sets how long (as a nullable double in seconds) to wait for a response before timing out. Values greater than zero are converted to milliseconds for the timeout. If null or zero, a default of 1.0 second applies.
+The ```NetworkStatusTimeout``` property sets how long (as a null-able double in seconds) to wait for a response before timing out. Values greater than zero are converted to milliseconds for the timeout. If null or zero, a default of 1.0 second applies.
 
 
 ## Code Section Example
@@ -133,8 +135,10 @@ namespace DaffittSampleBlazorApp.Client.Layout
         {
             if (firstRender)
             {
-                // This step is optional, as the component will automatically initialize and
-                // conduct an initial status check upon being rendered within the application.
+                // With version 2.1.0, this step is NO LONGER optional.
+                // The automatic check has been eliminated to reduce unnecessary redundant
+                // requests to the ping service. Be sure to call this function during the
+                // initial render of the component or page containing the Network Status component.
                 await _networkStatusService.GetStatusAsync(NetworkStatusTimeout);
             }
             await base.OnAfterRenderAsync(firstRender);
