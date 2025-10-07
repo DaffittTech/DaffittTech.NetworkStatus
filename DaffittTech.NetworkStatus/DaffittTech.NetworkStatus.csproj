@@ -11,7 +11,7 @@
 		<Copyright>© 2025 Daffitt Technologies</Copyright>
 		<PackageIcon>DaffittLogo_Signal.png</PackageIcon>
 		<PackageOutputPath>C:\Users\covey\source\NuGetPackages\Release\net9.0</PackageOutputPath>
-		<Version>2.0.1</Version>
+		<Version>2.1.0</Version>
 		<ApplicationIcon>DaffittLogo_Signal.ico</ApplicationIcon>
 		<NeutralLanguage>en-US</NeutralLanguage>
 		<RepositoryType>git</RepositoryType>

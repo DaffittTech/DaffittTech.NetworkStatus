@@ -39,7 +39,6 @@ namespace DaffittTech.NetworkStatus
                 NetworkService.OnNetworkStatusChanged += UpdateNetworkStatus;
                 await NetworkService.Initialize();
                 await NetworkService.MonitorStatus(Interval, Timeout);
-                await NetworkService.GetStatusAsync(Timeout);
             }
             await base.OnAfterRenderAsync(firstRender);
         }
